@@ -1,0 +1,38 @@
+# DDL Generation
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ProductManagement?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
+    password: 165631
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: never
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: none
+
+    # Hibernate
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        default_schema: HUB
+        format_sql: true
+        show_sql: true
+    defer-datasource-initialization: true
+
+
+# Logs
+logging:
+  level:
+    web: trace
+    sql: debug
+
+
+server:
+  error:
+    include-exception: true
+    include-stacktrace: ALWAYS
+
